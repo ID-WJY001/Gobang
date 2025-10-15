@@ -2757,7 +2757,7 @@ node min_max_alpha_beta(int vis[15][15], int depth, int alpha, int beta, bool ma
 		return min_eval;
 	}
 }
-int main() {
+static void AppInit() {
 	memset(value, 0, sizeof(value));
 	initgraph(1024, 1024);
 	mciSendString(_T("open assets/audio/bgmusic.mp3 alias bgm"), 0, 0, 0);
@@ -2765,10 +2765,20 @@ int main() {
 	Load_UI();
 	Chess_Position();
 	Start_UI();
+}
+
+static void AppRun() {
 	Main_Page();
 	if (flag_exit) {
-		return 0;
+		return;
 	}
-	while(1);
+	while (1) {
+		// 保持窗口不退出，与原 main 的 while(1) 等价
+	}
+}
+
+int main() {
+	AppInit();
+	AppRun();
 	return 0;
 }
