@@ -14,3 +14,7 @@ target_include_directories(gobang_core PUBLIC include)
 # UI 仍由 Visual Studio 项目构建；若需要 CMake 集成 UI，请自行链接 EasyX 与 winmm
 # add_executable(gobang main.cpp)
 # target_link_libraries(gobang PRIVATE gobang_core easyx winmm)
+
+# Tests (logic only)
+add_executable(board_iswin_test tests/board_iswin_test.cpp)
+target_link_libraries(board_iswin_test PRIVATE gobang_core)
