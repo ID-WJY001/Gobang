@@ -18,3 +18,7 @@ target_include_directories(gobang_core PUBLIC include)
 # Tests (logic only)
 add_executable(board_iswin_test tests/board_iswin_test.cpp)
 target_link_libraries(board_iswin_test PRIVATE gobang_core)
+
+include(CTest)
+enable_testing()
+add_test(NAME board_iswin_test COMMAND board_iswin_test)

@@ -22,6 +22,17 @@
 2. 确保已安装 EasyX（或工程自带依赖），并在项目属性中链接 `winmm.lib`
 3. 保证程序的工作目录能访问 `assets/`（VS 默认工作目录在项目根或 `x64/Debug`，目前代码使用相对路径 `assets/...`）
 4. 生成并运行
+## 运行核心测试（可选，CMake）
+- 本项目提供了不依赖 UI 的核心逻辑测试（如 `Board::isWin`）。
+- 本地运行：
+	1) 安装 CMake 与编译器（VS/MSVC 或 MinGW）
+	2) 在项目根目录执行：
+		 - `cmake -S . -B build -DCMAKE_BUILD_TYPE=Release`
+		 - `cmake --build build --config Release`
+		 - `ctest --test-dir build -C Release --output-on-failure`
+
+## CI
+- 已配置 GitHub Actions（Windows）：在推送或 PR 时自动构建并运行核心测试。
 
 若首次打开出现中文字体显示异常（乱码），可尝试：
 - 将源文件保存为 UTF-8（带 BOM）
