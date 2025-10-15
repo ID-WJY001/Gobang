@@ -1,6 +1,6 @@
 # Gobang 五子棋（EasyX 版）
 
-一个一年前写的五子棋小游戏（Windows/Visual Studio/EasyX），包含：
+自己的第一个项目。来自北京大学《计算概论A》大作业五子棋小游戏（Windows/Visual Studio/EasyX），包含：
 - 主菜单、设置页、规则与关于
 - 人机/人人对战
 - 存档/读档（基于内存的简单保存）

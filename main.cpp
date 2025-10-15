@@ -1,8 +1,3 @@
-/*©╙╥╒хуж╬  
-* ©╙╥╒оНд©ё╨нЕвсфЕ
-* ©╙╥╒хкт╠ё╨мУ©║яТ
-* ©╙╥╒й╠╪Дё╨2024.11.20-2024.12.24
-*/
 #include<graphics.h>
 #include<mmsystem.h>
 #include<iostream>
@@ -88,34 +83,34 @@ int pos[15][15][2];
 int vis[15][15];
 int value[15][15];
 void Load_UI() {
-	loadimage(&mainpage,"mainpage.jpg");
-	loadimage(&inipage, "inipage.jpg");
-	loadimage(&chessboard, "chessboard.jpg");
-	loadimage(&startgame,"startgame.jpg");
-	loadimage(&loadgame, "loadgame.jpg");
-	loadimage(&savegame, "savegame.jpg");
-	loadimage(&quitgame, "quitgame.jpg");
-	loadimage(&settings, "settings.jpg");
-	loadimage(&mask, "mask.jpg");
-	loadimage(&blackmask, "blackmask.jpg"); 
-	loadimage(&whitemask, "whitemask.jpg");
-	loadimage(&humancomputer, "humancomputer.jpg");
-	loadimage(&humanhuman, "humanhuman.jpg");
-	loadimage(&maskplus, "maskplus.jpg");
-	loadimage(&back, "back.jpg");
-	loadimage(&musicon, "musicon.jpg");
-	loadimage(&musicoff, "musicoff.jpg");
-	loadimage(&gamerules, "gamerules.jpg");
-	loadimage(&aboutgame, "aboutgame.jpg");
-	loadimage(&black, "black.jpg");
-	loadimage(&white, "white.jpg");
-	loadimage(&blackplay, "blackplay.jpg");
-	loadimage(&whiteplay, "whiteplay.jpg");
-	loadimage(&blackplayplus, "blackplayplus.jpg");
-	loadimage(&whiteplayplus, "whiteplayplus.jpg");
-	loadimage(&page, "page.jpg");
-	loadimage(&pagemini, "pagemini.jpg");
-	loadimage(&clicktostart, "clicktostart.jpg");
+	loadimage(&mainpage,"assets/images/mainpage.jpg");
+	loadimage(&inipage, "assets/images/inipage.jpg");
+	loadimage(&chessboard, "assets/images/chessboard.jpg");
+	loadimage(&startgame,"assets/images/startgame.jpg");
+	loadimage(&loadgame, "assets/images/loadgame.jpg");
+	loadimage(&savegame, "assets/images/savegame.jpg");
+	loadimage(&quitgame, "assets/images/quitgame.jpg");
+	loadimage(&settings, "assets/images/settings.jpg");
+	loadimage(&mask, "assets/images/mask.jpg");
+	loadimage(&blackmask, "assets/images/blackmask.jpg"); 
+	loadimage(&whitemask, "assets/images/whitemask.jpg");
+	loadimage(&humancomputer, "assets/images/humancomputer.jpg");
+	loadimage(&humanhuman, "assets/images/humanhuman.jpg");
+	loadimage(&maskplus, "assets/images/maskplus.jpg");
+	loadimage(&back, "assets/images/back.jpg");
+	loadimage(&musicon, "assets/images/musicon.jpg");
+	loadimage(&musicoff, "assets/images/musicoff.jpg");
+	loadimage(&gamerules, "assets/images/gamerules.jpg");
+	loadimage(&aboutgame, "assets/images/aboutgame.jpg");
+	loadimage(&black, "assets/images/black.jpg");
+	loadimage(&white, "assets/images/white.jpg");
+	loadimage(&blackplay, "assets/images/blackplay.jpg");
+	loadimage(&whiteplay, "assets/images/whiteplay.jpg");
+	loadimage(&blackplayplus, "assets/images/blackplayplus.jpg");
+	loadimage(&whiteplayplus, "assets/images/whiteplayplus.jpg");
+	loadimage(&page, "assets/images/page.jpg");
+	loadimage(&pagemini, "assets/images/pagemini.jpg");
+	loadimage(&clicktostart, "assets/images/clicktostart.jpg");
 }
 void Start_UI() {
 	putimage(0,0,&mainpage);
@@ -131,13 +126,13 @@ void Start_UI() {
 	LOGFONT f;
 	gettextstyle(&f);
 	f.lfHeight = 120;
-	_tcscpy_s(f.lfFaceName, _T("а╔йИ"));
-	f.lfQuality = ANTIALIASED_QUALITY;//©╧╬БЁщп╖╧Ш
+	_tcscpy_s(f.lfFaceName, _T("О©╫О©╫О©╫О©╫"));
+	f.lfQuality = ANTIALIASED_QUALITY;//О©╫О©╫О©╫О©╫О©╫п╖О©╫О©╫
 	settextstyle(&f);
 	setbkmode(TRANSPARENT);
-	outtextxy(452, 200, "нЕ");
-	outtextxy(452, 320, "вс");
-	outtextxy(452, 440, "фЕ");
+	outtextxy(452, 200, "О©╫О©╫");
+	outtextxy(452, 320, "О©╫О©╫");
+	outtextxy(452, 440, "О©╫О©╫");
 }
 void Main_Page() {
 	bool flag = 0;
@@ -173,7 +168,7 @@ void Main_Page() {
 					Settings();
 					return;
 				}
-				if (msg.x > 512 && msg.x < 672 && msg.y > 790 && msg.y < 871) {//Exitё╗ж╠╫смкЁЖё╘
+				if (msg.x > 512 && msg.x < 672 && msg.y > 790 && msg.y < 871) {//ExitО©╫О©╫ж╠О©╫О©╫О©╫кЁО©╫О©╫О©╫
 					Sleep(100);
 					flag_exit = 1;
 					return;
@@ -193,14 +188,14 @@ void New_Game() {
 	LOGFONT f;
 	gettextstyle(&f);
 	f.lfHeight = 80;
-	_tcscpy_s(f.lfFaceName, _T("а╔йИ"));
+	_tcscpy_s(f.lfFaceName, _T("О©╫О©╫О©╫О©╫"));
 	f.lfQuality = ANTIALIASED_QUALITY;
 	settextstyle(&f);
 	setbkmode(TRANSPARENT);
-	outtextxy(472, 100, "гК");
+	outtextxy(472, 100, "О©╫О©╫");
 	outtextxy(472, 180, "я║");
-	outtextxy(472, 260, "тЯ");
-	outtextxy(472, 340, "сн");
+	outtextxy(472, 260, "О©╫О©╫");
+	outtextxy(472, 340, "О©╫О©╫");
 	outtextxy(472, 420, "о╥");
 	outtextxy(472, 500, "дё");
 	outtextxy(472, 580, "й╫");
@@ -227,7 +222,7 @@ void New_Game() {
 					return;
 				}
 				if (msg.x > 532 && msg.x < 812 && msg.y > 740 && msg.y < 882) {//Human-Human
-					mciSendString("close BGM", 0, 0, 0);
+					mciSendString("close bgm", 0, 0, 0);
 					Sleep(500);
 					memset(vis, 0, sizeof(vis));
 					flag_com = 0;
@@ -255,16 +250,16 @@ void Choose_Color() {
 	LOGFONT f;
 	gettextstyle(&f);
 	f.lfHeight = 80;
-	_tcscpy_s(f.lfFaceName, _T("а╔йИ"));
+	_tcscpy_s(f.lfFaceName, _T("О©╫О©╫О©╫О©╫"));
 	f.lfQuality = ANTIALIASED_QUALITY;
 	settextstyle(&f);
 	setbkmode(TRANSPARENT);
-	outtextxy(472, 100, "гК");
+	outtextxy(472, 100, "О©╫О©╫");
 	outtextxy(472, 180, "я║");
-	outtextxy(472, 260, "тЯ");
+	outtextxy(472, 260, "О©╫О©╫");
 	outtextxy(472, 340, "ж╢");
-	outtextxy(472, 420, "фЕ");
-	outtextxy(472, 500, "яу");
+	outtextxy(472, 420, "О©╫О©╫");
+	outtextxy(472, 500, "О©╫О©╫");
 	outtextxy(472, 580, "и╚");
 	bool flag = 0;
 	ExMessage msg;
@@ -362,33 +357,33 @@ void Rule_Page() {
 	LOGFONT f;
 	gettextstyle(&f);
 	f.lfHeight = 50;
-	_tcscpy_s(f.lfFaceName, _T("а╔йИ"));
+	_tcscpy_s(f.lfFaceName, _T("О©╫О©╫О©╫О©╫"));
 	f.lfQuality = ANTIALIASED_QUALITY;
 	settextstyle(&f);
 	setbkmode(TRANSPARENT);
-	outtextxy(400, 170, "сно╥╧ФтР");
+	outtextxy(400, 170, "О©╫О©╫о╥О©╫О©╫О©╫О©╫");
 	f.lfHeight = 30;
 	settextstyle(&f);
-	outtextxy(260, 235, "1.╨з╟вк╚╥╫бжаВбДвсё╛╨з╥╫н╙охйж║ё");
-	outtextxy(260, 275, "2.тз╨А║╒йЗ║╒п╠╥╫оРиоа╛ЁинЕвсё╗а╛");
-	outtextxy(290, 315, "пЬнЕ╦ЖфЕвс╫тн╙╪╨╥╫ё╘уън╙й╓║ё");
-	outtextxy(260, 355, "3.╨зфЕтзппфЕ╧ЩЁлжпё╛хГ╧Шн╔╥╢ртоб");
-	outtextxy(290, 395, "║╟╫Шйж╧ФтР║╠╩А╠╩еп╦╨ё╨");
+	outtextxy(260, 235, "1.О©╫з╟О©╫к╚О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫сёО©╫О©╫з╥О©╫н╙О©╫О©╫О©╫ж║О©╫");
+	outtextxy(260, 275, "2.О©╫з╨А║╒О©╫О©╫О©╫О©╫п╠О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫сёО©╫О©╫О©╫");
+	outtextxy(290, 315, "О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫с╫О©╫н╙О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫н╙й╓О©╫О©╫");
+	outtextxy(260, 355, "3.О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫пёО©╫О©╫О©╫О©╫н╔О©╫О©╫О©╫О©╫О©╫О©╫");
+	outtextxy(290, 395, "О©╫О©╫О©╫О©╫О©╫ж╧О©╫О©╫Р║╠╩А╠╩О©╫п╦О©╫О©╫О©╫");
 	f.lfHeight = 25;
 	settextstyle(&f);
-	outtextxy(280, 435, "ё╗1ё╘хЩхЩ╫Шйжё╨╨зфЕтзр╩╦Жн╩жцобвс╨Сё╛");
-	outtextxy(330, 465, "пнЁиа╫╦Ж╩Ра╫╦Жртио╣д╩НхЩ║ё╩НхЩйг");
-	outtextxy(330, 495, "ж╦тзфЕелиоспхЩ╦Жа╛пЬ╣д╨звсё╛гра╫");
-	outtextxy(330, 525, "╤к╤╪сп©ун╩©ирт╪лпЬобвспнЁинЕа╛║ё");
-	outtextxy(280, 555, "ё╗2ё╘кдкд╫Шйжё╨╨зфЕтзр╩╦Жн╩жцобвс╨Сё╛");
-	outtextxy(330, 585, "пнЁиа╫╦Ж╩Ра╫╦Жртио╣д╩Нкд║ё╩Нкдйг");
-	outtextxy(330, 615, "ж╦тзфЕелиоспкд╦Жа╛пЬ╣д╨звсё╛грсп"); 
-	outtextxy(330, 645, "©ун╩©ирт╪лпЬобвспнЁинЕа╛║ё"); 
-	outtextxy(280, 675, "ё╗3ё╘Ё╓а╛╫Шйжё╨╨зфЕтзр╩╦Жн╩жцобвс╨Сё╛");
-	outtextxy(330, 705, "пнЁиаЫ╦Ж╩Р╦Э╤Юа╛пЬ╣д╨звс║ё"); 
-	outtextxy(280, 735, "ё╗4ё╘кдхЩ╫Шйжё╨╨зфЕтзр╩╦Жн╩жцобвс╨Сё╛"); 
-	outtextxy(330, 765, "м╛й╠пнЁир╩╦Ж╩Нкд╨мр╩╦Ж╩НхЩ║ёуБжж");
-	outtextxy(330, 795, "гИ©Жр╡╠╩йсн╙╫Шйж║ё");
+	outtextxy(280, 435, "О©╫О©╫1О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫жёО©╫О©╫О©╫О©╫О©╫О©╫О©╫р╩О©╫О©╫н╩О©╫О©╫О©╫О©╫О©╫с╨О©╫");
+	outtextxy(330, 465, "О©╫нЁО©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫о╣д╩О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫");
+	outtextxy(330, 495, "ж╦О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫д╨О©╫О©╫сёО©╫О©╫О©╫О©╫О©╫");
+	outtextxy(330, 525, "О©╫к╤О©╫О©╫п©О©╫н╩О©╫О©╫О©╫т╪О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫нЁО©╫О©╫О©╫О©╫О©╫О©╫О©╫");
+	outtextxy(280, 555, "О©╫О©╫2О©╫О©╫О©╫О©╫О©╫д╫О©╫О©╫жёО©╫О©╫О©╫О©╫О©╫О©╫О©╫р╩О©╫О©╫н╩О©╫О©╫О©╫О©╫О©╫с╨О©╫");
+	outtextxy(330, 585, "О©╫нЁО©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫о╣д╩О©╫О©╫д║О©╫О©╫О©╫О©╫О©╫О©╫О©╫");
+	outtextxy(330, 615, "ж╦О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫д╦О©╫О©╫О©╫О©╫О©╫О©╫д╨О©╫О©╫сёО©╫О©╫О©╫О©╫О©╫"); 
+	outtextxy(330, 645, "О©╫О©╫н╩О©╫О©╫О©╫т╪О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫нЁО©╫О©╫О©╫О©╫О©╫О©╫О©╫"); 
+	outtextxy(280, 675, "О©╫О©╫3О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫жёО©╫О©╫О©╫О©╫О©╫О©╫О©╫р╩О©╫О©╫н╩О©╫О©╫О©╫О©╫О©╫с╨О©╫");
+	outtextxy(330, 705, "О©╫нЁО©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫д╨О©╫О©╫с║О©╫"); 
+	outtextxy(280, 735, "О©╫О©╫4О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫жёО©╫О©╫О©╫О©╫О©╫О©╫О©╫р╩О©╫О©╫н╩О©╫О©╫О©╫О©╫О©╫с╨О©╫"); 
+	outtextxy(330, 765, "м╛й╠О©╫нЁО©╫р╩О©╫О©╫О©╫О©╫О©╫д╨О©╫р╩О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫");
+	outtextxy(330, 795, "О©╫О©╫О©╫р╡О©╫О©╫О©╫О©╫н╙О©╫О©╫О©╫ж║О©╫");
 	bool flag = 0;
 	ExMessage msg;
 	while (1) {
@@ -424,17 +419,17 @@ void Details_Page() {
 	LOGFONT f;
 	gettextstyle(&f);
 	f.lfHeight = 50;
-	_tcscpy_s(f.lfFaceName, _T("а╔йИ"));
+	_tcscpy_s(f.lfFaceName, _T("О©╫О©╫О©╫О©╫"));
 	f.lfQuality = ANTIALIASED_QUALITY;
 	settextstyle(&f);
 	setbkmode(TRANSPARENT);
-	outtextxy(400, 525, "сно╥к╣цВ");
+	outtextxy(400, 525, "О©╫О©╫о╥к╣О©╫О©╫");
 	f.lfHeight = 30;
 	settextstyle(&f);
-	outtextxy(260, 605, "©╙╥╒хкт╠ё╨мУ©║яТ");
-	outtextxy(260, 655, "©╙╥╒оНд©ё╨нЕвсфЕ");
-	outtextxy(260, 705, "╠Ё╬╟рТюжё╨Flower Dance");
-	outtextxy(260, 755, "©╙╥╒й╠╪Дё╨2024.11.20-2024.12.24");
+	outtextxy(260, 605, "О©╫О©╫О©╫О©╫О©╫О©╫т╠О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫");
+	outtextxy(260, 655, "О©╫О©╫О©╫О©╫О©╫О©╫д©О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫");
+	outtextxy(260, 705, "О©╫О©╫О©╫О©╫О©╫О©╫О©╫жёО©╫Flower Dance");
+	outtextxy(260, 755, "О©╫О©╫О©╫О©╫й╠О©╫Дё╨2024.11.20-2024.12.24");
 	bool flag = 0;
 	ExMessage msg;
 	while (1) {
@@ -465,15 +460,15 @@ void Details_Page() {
 }
 void Music() {
 	if (flag_music) {
-		mciSendString("open bgmusic.mp3", NULL, 0, NULL);
-		mciSendString("play bgmusic.mp3 repeat", NULL, 0, NULL);
+		mciSendString("open assets/audio/bgmusic.mp3 alias bgm", NULL, 0, NULL);
+		mciSendString("play bgm repeat", NULL, 0, NULL);
 		putimage(0, 0, &mainpage);
 		putimage(432, 610, &mask, NOTSRCERASE);
 		putimage(432, 610, &musicon, SRCINVERT);
 		Settings();
 	}
 	if (!flag_music) {
-		mciSendString("close bgmusic.mp3", NULL, 0, NULL);
+		mciSendString("close bgm", NULL, 0, NULL);
 		putimage(0, 0, &mainpage);
 		putimage(432, 610, &mask, NOTSRCERASE);
 		putimage(432, 610, &musicoff, SRCINVERT);
@@ -832,11 +827,11 @@ void Load_Game() {
 		LOGFONT f;
 		gettextstyle(&f);
 		f.lfHeight = 50;
-		_tcscpy_s(f.lfFaceName, _T("а╔йИ"));
+		_tcscpy_s(f.lfFaceName, _T("О©╫О©╫О©╫О©╫"));
 		f.lfQuality = ANTIALIASED_QUALITY;
 		settextstyle(&f);
 		setbkmode(TRANSPARENT);
-		outtextxy(330, 600, "гКох©╙й╪пбсно╥ё║");
+		outtextxy(330, 600, "О©╫О©╫О©╫х©О©╫й╪О©╫О©╫О©╫О©╫о╥О©╫О©╫");
 		Sleep(1000);
 		Start_UI();
 		Main_Page();
@@ -911,8 +906,8 @@ bool Three_Three(int i, int j) {
 	int cnt = 0;
 	int flag1 = 0, flag2 = 0;
 	for (int ii = 1; ii <= 5; ii++) {
-		if (vis[i + ii][j] != 2) {//╡╩йг╟вфЕ
-			if (i + ii >= 15 || vis[i + ii][j] != 1) {//╡╩йг╨зфЕ
+		if (vis[i + ii][j] != 2) {//О©╫О©╫О©╫г╟О©╫О©╫О©╫
+			if (i + ii >= 15 || vis[i + ii][j] != 1) {//О©╫О©╫О©╫г╨О©╫О©╫О©╫
 			flag1 = ii - 1;
 			break;
 			}
@@ -1161,11 +1156,11 @@ void Forbidden_Move() {
 	LOGFONT f;
 	gettextstyle(&f);
 	f.lfHeight = 80;
-	_tcscpy_s(f.lfFaceName, _T("а╔йИ"));
+	_tcscpy_s(f.lfFaceName, _T("О©╫О©╫О©╫О©╫"));
 	f.lfQuality = ANTIALIASED_QUALITY;
 	settextstyle(&f);
 	setbkmode(TRANSPARENT);
-	outtextxy(130, 875, "╨зфЕ╫Шйжё╛╟вфЕй╓юШ");
+	outtextxy(130, 875, "О©╫О©╫О©╫О©╫О©╫О©╫жёО©╫О©╫О©╫О©╫О©╫й╓О©╫О©╫");
 	putimage(200, 50, &mask, NOTSRCERASE);
 	putimage(200, 50, &startgame, SRCINVERT);
 	ExMessage msg;
@@ -1242,11 +1237,11 @@ void Black_Win() {
 	LOGFONT f;
 	gettextstyle(&f);
 	f.lfHeight = 80;
-	_tcscpy_s(f.lfFaceName, _T("а╔йИ"));
+	_tcscpy_s(f.lfFaceName, _T("О©╫О©╫О©╫О©╫"));
 	f.lfQuality = ANTIALIASED_QUALITY;
 	settextstyle(&f);
 	setbkmode(TRANSPARENT);
-	outtextxy(350, 875, "╨зфЕй╓юШ");
+	outtextxy(350, 875, "О©╫О©╫О©╫О©╫й╓О©╫О©╫");
 	putimage(200, 50, &mask, NOTSRCERASE);
 	putimage(200, 50, &startgame, SRCINVERT);
 	ExMessage msg;
@@ -1272,11 +1267,11 @@ void White_Win() {
 	LOGFONT f;
 	gettextstyle(&f);
 	f.lfHeight = 80;
-	_tcscpy_s(f.lfFaceName, _T("а╔йИ"));
+	_tcscpy_s(f.lfFaceName, _T("О©╫О©╫О©╫О©╫"));
 	f.lfQuality = ANTIALIASED_QUALITY;
 	settextstyle(&f);
 	setbkmode(TRANSPARENT);
-	outtextxy(350, 875, "╟вфЕй╓юШ");
+	outtextxy(350, 875, "О©╫О©╫О©╫О©╫й╓О©╫О©╫");
 	putimage(200, 50, &mask, NOTSRCERASE);
 	putimage(200, 50, &startgame, SRCINVERT);
 	ExMessage msg;
@@ -1302,11 +1297,11 @@ void Tie() {
 	LOGFONT f;
 	gettextstyle(&f);
 	f.lfHeight = 80;
-	_tcscpy_s(f.lfFaceName, _T("а╔йИ"));
+	_tcscpy_s(f.lfFaceName, _T("О©╫О©╫О©╫О©╫"));
 	f.lfQuality = ANTIALIASED_QUALITY;
 	settextstyle(&f);
 	setbkmode(TRANSPARENT);
-	outtextxy(350, 875, "╨з╟вф╫╬ж");
+	outtextxy(350, 875, "О©╫з╟О©╫ф╫О©╫О©╫");
 	putimage(200, 50, &mask, NOTSRCERASE);
 	putimage(200, 50, &startgame, SRCINVERT);
 	ExMessage msg;
@@ -2644,8 +2639,8 @@ void AI_Play_White() {
 		}
 	}
 }
-//alpha╢З╠М╣╠г╟кякВб╥╬╤иоряур╣╫╣двН╢С╩╞мФ╪рё╗йтм╪й╧╬жцФфю╧юж╣вН╢С╣дмФ╪рё╘╣двН╢С©идэфю╧юж╣обоч
-//beta╢З╠М╣╠г╟кякВб╥╬╤иоряур╣╫╣двНп║╩╞мФ╪рё╗йтм╪й╧╬жцФфю╧юж╣вНп║╣дмФ╪рё╛м╗Ёён╙╤тйжё╘╣двНп║©идэфю╧юж╣иооч
+//alphaО©╫О©╫О©╫О©╫О©╫О©╫г╟О©╫О©╫О©╫О©╫б╥О©╫О©╫О©╫О©╫О©╫О©╫О©╫р╣О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫рёО©╫О©╫О©╫м╪й╧О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ж╣О©╫О©╫О©╫О©╫О©╫О©╫рёО©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ж╣О©╫О©╫О©╫О©╫
+//betaО©╫О©╫О©╫О©╫О©╫О©╫г╟О©╫О©╫О©╫О©╫б╥О©╫О©╫О©╫О©╫О©╫О©╫О©╫р╣О©╫О©╫О©╫О©╫О©╫п║О©╫О©╫О©╫О©╫рёО©╫О©╫О©╫м╪й╧О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ж╣О©╫О©╫п║О©╫О©╫О©╫О©╫рёО©╫м╗О©╫О©╫н╙О©╫О©╫О©╫жёО©╫О©╫О©╫О©╫О©╫п║О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ж╣О©╫О©╫О©╫О©╫
 node max_node(node i, node j) {
 	return i.value > j.value ? i : j;
 }
@@ -2678,11 +2673,11 @@ node min_max_alpha_beta(int vis[15][15], int depth, int alpha, int beta, bool ma
 					new_vis[row][col] = 1;
 					node eval_score;
 					eval_score= min_max_alpha_beta(new_vis, depth - 1, alpha, beta, false);
-					// ╦Эпб╣╠г╟ур╣╫╣двН╢Сфю╧юж╣ё╛х║╣╠г╟вН╢Сфю╧юж╣╨мпб╣ц╣╫╣дфю╧юж╣жп╣д╫о╢Суъ
+					// О©╫О©╫О©╫б╣О©╫г╟О©╫р╣О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ж╣О©╫О©╫х║О©╫О©╫г╟О©╫О©╫О©╫О©╫О©╫О©╫О©╫ж╣О©╫О©╫О©╫б╣ц╣О©╫О©╫О©╫О©╫О©╫О©╫О©╫ж╣О©╫п╣д╫о╢О©╫О©╫О©╫
 					max_eval = max_node(max_eval, eval_score);
-					// ╦Эпбalphaж╣ё╛х║╣╠г╟вН╢Сфю╧юж╣╨мряспalphaж╣жп╣д╫о╢Суъё╛вВн╙пб╣дalphaж╣ё╛сцсзalpha-beta╪Тж╕еп╤о
+					// О©╫О©╫О©╫О©╫alphaж╣О©╫О©╫х║О©╫О©╫г╟О©╫О©╫О©╫О©╫О©╫О©╫О©╫ж╣О©╫О©╫О©╫О©╫О©╫О©╫alphaж╣О©╫п╣д╫о╢О©╫О©╫ъёО©╫О©╫О©╫н╙О©╫б╣О©╫alphaж╣О©╫О©╫О©╫О©╫О©╫О©╫alpha-betaО©╫О©╫ж╕О©╫п╤О©╫
 					alpha = max(alpha, eval_score.value);
-					// ╫Ьппalpha-beta╪Тж╕еп╤оё╛хГ╧Шbetaж╣п║сз╣хсзalphaж╣ё╛к╣цВ╣╠г╟╥жж╖╡╩©идэты╡ЗиЗ╦Эсе╫А╧Шё╗╤тсзвН╢С╩╞мФ╪рю╢к╣ё╛ря╬╜ур╣╫╣двНп║╩╞мФ╪р╣двНп║©идэиооч╠х╣╠г╟ур╣╫╣двН╢С©идэобоч╩╧п║ё╛╨СпЬкякВц╩╠ьр╙╫Ьппакё╘ё╛ж╠╫слЬЁЖя╜╩╥ё╛мёж╧╤т╣╠г╟╡ЦйёсЮн╩жц╣дкякВ
+					// О©╫О©╫О©╫О©╫alpha-betaО©╫О©╫ж╕О©╫п╤оёО©╫О©╫О©╫О©╫betaж╣п║О©╫з╣О©╫О©╫О©╫alphaж╣О©╫О©╫к╣О©╫О©╫О©╫О©╫г╟О©╫О©╫ж╖О©╫О©╫О©╫О©╫О©╫О©╫О©╫ы╡О©╫О©╫О©╫О©╫О©╫О©╫е╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫к╣О©╫О©╫О©╫я╬О©╫О©╫р╣О©╫О©╫О©╫О©╫О©╫п║О©╫О©╫О©╫О©╫р╣О©╫О©╫О©╫п║О©╫О©╫О©╫О©╫О©╫О©╫О©╫ч╠х╣О©╫г╟О©╫р╣О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ч╩О©╫п║О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ц╩О©╫О©╫р╙О©╫О©╫О©╫О©╫О©╫кёО©╫О©╫О©╫ж╠О©╫О©╫О©╫О©╫О©╫О©╫я╜О©╫О©╫О©╫О©╫мёж╧О©╫т╣О©╫г╟О©╫О©╫йёО©╫О©╫н╩О©╫ц╣О©╫О©╫О©╫О©╫О©╫
 					if (beta <= alpha) {
 						break;
 					}
@@ -2701,11 +2696,11 @@ node min_max_alpha_beta(int vis[15][15], int depth, int alpha, int beta, bool ma
 					memcpy(new_vis, vis, sizeof(new_vis));
 					new_vis[row][col] = 2;
 					node eval_score = min_max_alpha_beta(new_vis, depth - 1, alpha, beta, true);
-					// ╦Эпб╣╠г╟ур╣╫╣двНп║фю╧юж╣ё╛х║╣╠г╟вНп║фю╧юж╣╨мпб╣ц╣╫╣дфю╧юж╣жп╣д╫оп║уъ
+					// О©╫О©╫О©╫б╣О©╫г╟О©╫р╣О©╫О©╫О©╫О©╫О©╫п║О©╫О©╫О©╫О©╫ж╣О©╫О©╫х║О©╫О©╫г╟О©╫О©╫п║О©╫О©╫О©╫О©╫ж╣О©╫О©╫О©╫б╣ц╣О©╫О©╫О©╫О©╫О©╫О©╫О©╫ж╣О©╫п╣д╫О©╫п║О©╫О©╫
 					min_eval = min_node(min_eval, eval_score);
-					// ╦Эпбbetaж╣ё╛х║╣╠г╟вНп║фю╧юж╣╨мряспbetaж╣жп╣д╫оп║уъё╛вВн╙пб╣дbetaж╣ё╛сцсзalpha-beta╪Тж╕еп╤о
+					// О©╫О©╫О©╫О©╫betaж╣О©╫О©╫х║О©╫О©╫г╟О©╫О©╫п║О©╫О©╫О©╫О©╫ж╣О©╫О©╫О©╫О©╫О©╫О©╫betaж╣О©╫п╣д╫О©╫п║О©╫ъёО©╫О©╫О©╫н╙О©╫б╣О©╫betaж╣О©╫О©╫О©╫О©╫О©╫О©╫alpha-betaО©╫О©╫ж╕О©╫п╤О©╫
 					beta = min(beta, eval_score.value);
-					// ╫Ьппalpha-beta╪Тж╕еп╤оё╛хГ╧Шbetaж╣п║сз╣хсзalphaж╣ё╛к╣цВ╣╠г╟╥жж╖╡╩©идэты╡ЗиЗ╦Эсе╫А╧Шё╗╤тсзвНп║╩╞мФ╪рю╢к╣ё╛ря╬╜ур╣╫╣двН╢С╩╞мФ╪р╣двН╢С©идэобоч╠х╣╠г╟ур╣╫╣двНп║©идэиооч╩╧╢Сё╛╨СпЬкякВц╩╠ьр╙╫Ьппакё╘ё╛ж╠╫слЬЁЖя╜╩╥ё╛мёж╧╤т╣╠г╟╡ЦйёсЮн╩жц╣дкякВ
+					// О©╫О©╫О©╫О©╫alpha-betaО©╫О©╫ж╕О©╫п╤оёО©╫О©╫О©╫О©╫betaж╣п║О©╫з╣О©╫О©╫О©╫alphaж╣О©╫О©╫к╣О©╫О©╫О©╫О©╫г╟О©╫О©╫ж╖О©╫О©╫О©╫О©╫О©╫О©╫О©╫ы╡О©╫О©╫О©╫О©╫О©╫О©╫е╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫п║О©╫О©╫О©╫О©╫О©╫О©╫О©╫к╣О©╫О©╫О©╫я╬О©╫О©╫р╣О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫р╣О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ч╠х╣О©╫г╟О©╫р╣О©╫О©╫О©╫О©╫О©╫п║О©╫О©╫О©╫О©╫О©╫О©╫О©╫ч╩О©╫О©╫Сё╛╨О©╫О©╫О©╫О©╫О©╫О©╫О©╫ц╩О©╫О©╫р╙О©╫О©╫О©╫О©╫О©╫кёО©╫О©╫О©╫ж╠О©╫О©╫О©╫О©╫О©╫О©╫я╜О©╫О©╫О©╫О©╫мёж╧О©╫т╣О©╫г╟О©╫О©╫йёО©╫О©╫н╩О©╫ц╣О©╫О©╫О©╫О©╫О©╫
 					if (beta <= alpha) {
 						break;
 					}
@@ -2718,8 +2713,8 @@ node min_max_alpha_beta(int vis[15][15], int depth, int alpha, int beta, bool ma
 int main() {
 	memset(value, 0, sizeof(value));
 	initgraph(1024, 1024);
-	mciSendString(_T("open bgmusic.mp3"), 0, 0, 0);
-	mciSendString(_T("play bgmusic.mp3 repeat"), 0, 0, 0);
+	mciSendString(_T("open assets/audio/bgmusic.mp3 alias bgm"), 0, 0, 0);
+	mciSendString(_T("play bgm repeat"), 0, 0, 0);
 	Load_UI();
 	Chess_Position();
 	Start_UI();
