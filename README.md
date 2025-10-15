@@ -13,13 +13,14 @@
 - 图形库：EasyX（graphics.h）
 - 音频：Windows MCI（winmm.lib）
 
-> 资源文件需与可执行程序位于同一工作目录（或在代码中更改路径）。涉及的文件包括：
-> `*.jpg`（背景、按钮、棋子）、`bgmusic.mp3` 等。
+> 资源文件现已集中到 `assets/` 目录：
+> - 图片：`assets/images/*.jpg`
+> - 音乐：`assets/audio/*.mp3`（BGM 使用 `bgmusic.mp3`，MCI alias 为 `bgm`）
 
 ## 快速开始（Visual Studio）
 1. 打开现有工程：`Project 1 五子棋.vcxproj`
 2. 确保已安装 EasyX（或工程自带依赖），并在项目属性中链接 `winmm.lib`
-3. 将图片与音乐资源放在可执行程序运行目录（通常是 `x64/Debug` 或项目根目录）
+3. 保证程序的工作目录能访问 `assets/`（VS 默认工作目录在项目根或 `x64/Debug`，目前代码使用相对路径 `assets/...`）
 4. 生成并运行
 
 若首次打开出现中文字体显示异常（乱码），可尝试：

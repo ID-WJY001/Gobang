@@ -2,6 +2,7 @@
 #include<mmsystem.h>
 #include<iostream>
 #include<iomanip>
+#include"include/board.h"
 #pragma comment(lib,"winmm.lib")
 using namespace std;
 struct node {
@@ -82,6 +83,18 @@ bool flag_com = 0;
 int pos[15][15][2];
 int vis[15][15];
 int value[15][15];
+
+// 将当前全局棋盘 vis 同步到 Board 实例
+static Board make_board_from_vis() {
+	Board b;
+	for (int r=0;r<15;++r) {
+		for (int c=0;c<15;++c) {
+			if (vis[r][c]==1) b.place(r,c,1);
+			else if (vis[r][c]==2) b.place(r,c,2);
+		}
+	}
+	return b;
+}
 void Load_UI() {
 	loadimage(&mainpage,"assets/images/mainpage.jpg");
 	loadimage(&inipage, "assets/images/inipage.jpg");
@@ -523,9 +536,12 @@ void Human_Computer() {
 											Forbidden_Move();
 											return;
 										}
-										else if (Judge_Win(i, j)) {
+										else {
+											Board b = make_board_from_vis();
+											if (b.isWin(i, j)) {
 											Black_Win();
 											return;
+											}
 										}
 										else if (Judge_Forbidden_Move(i, j)) {
 											Forbidden_Move();
@@ -542,9 +558,12 @@ void Human_Computer() {
 										putimage(pos[i][j][0], pos[i][j][1], &whitemask, NOTSRCERASE);
 										putimage(pos[i][j][0], pos[i][j][1], &white, SRCINVERT);
 										vis[i][j] = 2;
-										if (Judge_Win(i, j)) {
+										{
+											Board b = make_board_from_vis();
+											if (b.isWin(i, j)) {
 											White_Win();
 											return;
+											}
 										}
 										else {
 											putimage(432, 50, &mask, NOTSRCERASE);
@@ -600,9 +619,12 @@ void Human_Human() {
 										Forbidden_Move();
 										return;
 									}
-									else if (Judge_Win(i, j)) {
+									else {
+										Board b = make_board_from_vis();
+										if (b.isWin(i, j)) {
 										Black_Win();
 										return;
+										}
 									}
 									else if (Judge_Forbidden_Move(i, j)) {
 										Forbidden_Move();
@@ -618,9 +640,12 @@ void Human_Human() {
 									putimage(pos[i][j][0], pos[i][j][1], &whitemask, NOTSRCERASE);
 									putimage(pos[i][j][0], pos[i][j][1], &white, SRCINVERT);
 									vis[i][j] = 2;
-									if (Judge_Win(i,j)) {
+									{
+										Board b = make_board_from_vis();
+										if (b.isWin(i, j)) {
 										White_Win();
 										return;
+										}
 									}
 									else {
 										putimage(432, 50, &mask, NOTSRCERASE);
@@ -718,9 +743,12 @@ void Load_Game() {
 												Forbidden_Move();
 												return;
 											}
-											else if (Judge_Win(i, j)) {
+											else {
+												Board b = make_board_from_vis();
+												if (b.isWin(i, j)) {
 												Black_Win();
 												return;
+												}
 											}
 											else if (Judge_Forbidden_Move(i, j)) {
 												Forbidden_Move();
@@ -736,9 +764,12 @@ void Load_Game() {
 											putimage(pos[i][j][0], pos[i][j][1], &whitemask, NOTSRCERASE);
 											putimage(pos[i][j][0], pos[i][j][1], &white, SRCINVERT);
 											vis[i][j] = 2;
-											if (Judge_Win(i, j)) {
+											{
+												Board b = make_board_from_vis();
+												if (b.isWin(i, j)) {
 												White_Win();
 												return;
+												}
 											}
 											else {
 												putimage(432, 50, &mask, NOTSRCERASE);
@@ -781,9 +812,12 @@ void Load_Game() {
 													Forbidden_Move();
 													return;
 												}
-												else if (Judge_Win(i, j)) {
+												else {
+													Board b = make_board_from_vis();
+													if (b.isWin(i, j)) {
 													Black_Win();
 													return;
+													}
 												}
 												else if (Judge_Forbidden_Move(i, j)) {
 													Forbidden_Move();
@@ -800,9 +834,12 @@ void Load_Game() {
 												putimage(pos[i][j][0], pos[i][j][1], &whitemask, NOTSRCERASE);
 												putimage(pos[i][j][0], pos[i][j][1], &white, SRCINVERT);
 												vis[i][j] = 2;
-												if (Judge_Win(i, j)) {
+												{
+													Board b = make_board_from_vis();
+													if (b.isWin(i, j)) {
 													White_Win();
 													return;
+													}
 												}
 												else {
 													putimage(432, 50, &mask, NOTSRCERASE);
@@ -2580,9 +2617,12 @@ void AI_Play_Black() {
 		putimage(pos[i0][j0][0], pos[i0][j0][1], &blackmask, NOTSRCERASE);
 		putimage(pos[i0][j0][0], pos[i0][j0][1], &black, SRCINVERT);
 		vis[i0][j0] = 1;
-		if (Judge_Win(i0, j0)) {
-			Black_Win();
-			return;
+		{
+			Board b = make_board_from_vis();
+			if (b.isWin(i0, j0)) {
+				Black_Win();
+				return;
+			}
 		}
 		else {
 			putimage(432, 50, &mask, NOTSRCERASE);
@@ -2605,7 +2645,13 @@ void AI_Play_White() {
 			}
 			else {
 				value[i][j] = Huo_4(i, j, 1) * HUO_4_SCORE + (Chong_4_1(i, j, 1) + Chong_4_2(i, j, 1)) * CHONG_4_SCORE + Dan_Huo_3(i, j, 1) * DAN_HUO_3_SCORE + Tiao_Huo_3(i, j, 1) * TIAO_HUO_3_SCORE + (Mian_3_1(i, j, 1) + Mian_3_2(i, j, 1) + Mian_3_3(i, j, 1)) * MIAN_3_SCORE + Huo_2(i, j, 1) * HUO_2_SCORE + (Mian_2_1(i, j, 1) + Mian_2_2(i, j, 1)) * MIAN_2_SCORE;
-				value[i][j] += Huo_4(i, j, 0) * 500000 + (Chong_4_1(i, j, 0) + Chong_4_2(i, j, 0)) * CHONG_4_SCORE + Dan_Huo_3(i, j, 0) * DAN_HUO_3_SCORE + Tiao_Huo_3(i, j, 0) * 800 + (Mian_3_1(i, j, 0) + Mian_3_2(i, j, 0) + Mian_3_3(i, j, 0)) *  + Huo_2(i, j, 0) * HUO_2_SCORE + (Mian_2_1(i, j, 0) + Mian_2_2(i, j, 0)) * MIAN_2_SCORE;
+				value[i][j] += Huo_4(i, j, 0) * 500000
+					+ (Chong_4_1(i, j, 0) + Chong_4_2(i, j, 0)) * CHONG_4_SCORE
+					+ Dan_Huo_3(i, j, 0) * DAN_HUO_3_SCORE
+					+ Tiao_Huo_3(i, j, 0) * TIAO_HUO_3_SCORE
+					+ (Mian_3_1(i, j, 0) + Mian_3_2(i, j, 0) + Mian_3_3(i, j, 0)) * MIAN_3_SCORE
+					+ Huo_2(i, j, 0) * HUO_2_SCORE
+					+ (Mian_2_1(i, j, 0) + Mian_2_2(i, j, 0)) * MIAN_2_SCORE;
 				if (i >= 6 && i <= 8 && j >= 6 && j <= 8) {
 					value[i][j]+=11;
 				}
@@ -2625,9 +2671,12 @@ void AI_Play_White() {
 		putimage(pos[i0][j0][0], pos[i0][j0][1], &whitemask, NOTSRCERASE);
 		putimage(pos[i0][j0][0], pos[i0][j0][1], &white, SRCINVERT);
 		vis[i0][j0] = 2;
-		if (Judge_Win(i0, j0)) {
-			White_Win();
-			return;
+		{
+			Board b = make_board_from_vis();
+			if (b.isWin(i0, j0)) {
+				White_Win();
+				return;
+			}
 		}
 		else {
 			putimage(432, 50, &mask, NOTSRCERASE);
