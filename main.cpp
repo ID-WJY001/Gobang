@@ -36,6 +36,8 @@ bool Long_Connect(int i,int j);
 bool Three_Three(int i,int j);
 bool Four_Four(int i,int j);
 bool Judge_Forbidden_Move(int i,int j);
+// 统一禁手判断的包装函数前置声明（保持与原有顺序一致：长连 -> 双三 -> 双四）
+static inline bool IsForbiddenAt(int i, int j);
 int Cheng_5(int i, int j, int k);
 int Huo_4(int i, int j, int k);
 int Dan_Huo_3(int i, int j, int k);
@@ -532,7 +534,7 @@ void Human_Computer() {
 										putimage(pos[i][j][0], pos[i][j][1], &blackmask, NOTSRCERASE);
 										putimage(pos[i][j][0], pos[i][j][1], &black, SRCINVERT);
 										vis[i][j] = 1;
-										if (Long_Connect(i, j)) {
+										if (IsForbiddenAt(i, j)) {
 											Forbidden_Move();
 											return;
 										}
@@ -542,10 +544,6 @@ void Human_Computer() {
 											Black_Win();
 											return;
 											}
-										}
-										else if (Judge_Forbidden_Move(i, j)) {
-											Forbidden_Move();
-											return;
 										}
 										else {
 											putimage(432, 50, &mask, NOTSRCERASE);
@@ -615,7 +613,7 @@ void Human_Human() {
 									putimage(pos[i][j][0], pos[i][j][1], &blackmask, NOTSRCERASE);
 									putimage(pos[i][j][0], pos[i][j][1], &black, SRCINVERT);
 									vis[i][j] = 1;
-									if (Long_Connect(i, j)) {
+									if (IsForbiddenAt(i, j)) {
 										Forbidden_Move();
 										return;
 									}
@@ -625,10 +623,6 @@ void Human_Human() {
 										Black_Win();
 										return;
 										}
-									}
-									else if (Judge_Forbidden_Move(i, j)) {
-										Forbidden_Move();
-										return;
 									}
 									else {
 										putimage(432, 50, &mask, NOTSRCERASE);
@@ -739,7 +733,7 @@ void Load_Game() {
 											putimage(pos[i][j][0], pos[i][j][1], &blackmask, NOTSRCERASE);
 											putimage(pos[i][j][0], pos[i][j][1], &black, SRCINVERT);
 											vis[i][j] = 1;
-											if (Long_Connect(i, j)) {
+											if (IsForbiddenAt(i, j)) {
 												Forbidden_Move();
 												return;
 											}
@@ -749,10 +743,6 @@ void Load_Game() {
 												Black_Win();
 												return;
 												}
-											}
-											else if (Judge_Forbidden_Move(i, j)) {
-												Forbidden_Move();
-												return;
 											}
 											else {
 												putimage(432, 50, &mask, NOTSRCERASE);
@@ -808,7 +798,7 @@ void Load_Game() {
 												putimage(pos[i][j][0], pos[i][j][1], &blackmask, NOTSRCERASE);
 												putimage(pos[i][j][0], pos[i][j][1], &black, SRCINVERT);
 												vis[i][j] = 1;
-												if (Long_Connect(i, j)) {
+												if (IsForbiddenAt(i, j)) {
 													Forbidden_Move();
 													return;
 												}
@@ -818,10 +808,6 @@ void Load_Game() {
 													Black_Win();
 													return;
 													}
-												}
-												else if (Judge_Forbidden_Move(i, j)) {
-													Forbidden_Move();
-													return;
 												}
 												else {
 													putimage(432, 50, &mask, NOTSRCERASE);
@@ -2586,7 +2572,7 @@ void AI_Play_Black() {
 	int maxn = -1, i0, j0;
 	for (int i = 0; i < 15; i++) {
 		for (int j = 0; j < 15; j++) {
-			if (Judge_Forbidden_Move(i, j)) {
+			if (IsForbiddenAt(i, j)) {
 				value[i][j] = -1;
 			}
 			else if (Cheng_5(i, j ,1)) {
@@ -2686,8 +2672,6 @@ void AI_Play_White() {
 		}
 	}
 }
-//alpha������ǰ����·�������ҵ��������ң���ͼʹ��������ֵ������ң�������������ֵ����
-//beta������ǰ����·�������ҵ�����С����ң���ͼʹ��������ֵ��С����ң�ͨ��Ϊ���֣�����С��������ֵ����
 node max_node(node i, node j) {
 	return i.value > j.value ? i : j;
 }
@@ -2781,4 +2765,12 @@ int main() {
 	AppInit();
 	AppRun();
 	return 0;
+}
+
+// 保持原有禁手判定的顺序与行为不变的包装函数
+static inline bool IsForbiddenAt(int i, int j) {
+	if (Long_Connect(i, j)) return true;
+	if (Three_Three(i, j)) return true;
+	if (Four_Four(i, j)) return true;
+	return false;
 }
