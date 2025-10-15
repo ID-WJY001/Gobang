@@ -1,0 +1,59 @@
+# Visual Studio
+.vs/
+*.vcxproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+arm/
+*.obj
+*.iobj
+*.pdb
+*.ipdb
+*.ilk
+*.idb
+*.tlog/
+*.log
+*.pch
+*.cache
+*.aps
+*.lastbuildstate
+
+# Binaries
+*.exe
+*.dll
+*.lib
+*.exp
+
+# Packages
+packages/
+*.nupkg
+*.snupkg
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Editor
+*.code-workspace
+*.swp
+*.tmp
+
+# Generated
+*.opendb
+*.VC.db
+*.VC.opendb
+*.vc.db
+
+# Audio/Images build copies (keep sources under assets/ in future)
+# Uncomment if you commit only sources, not built copies
+# *.jpg
+# *.png
+# *.mp3
